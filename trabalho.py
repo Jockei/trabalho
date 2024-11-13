@@ -84,6 +84,7 @@ dia_com_mais_vendas = vendas_por_dia_da_semana.idxmax()
 print(f'Dia da semana com maior número de vendas: {dia_com_mais_vendas}')
 
 # Calcular a variação diária no valor total das vendas
+pd.set_option('future.no_silent_downcasting', True)
 vendas_por_dia = dados.groupby('Data')['ValorTotal'].sum()
 variacao_diaria_vendas = vendas_por_dia.diff().fillna(0)
 print('Variação diária no valor total das vendas:')
